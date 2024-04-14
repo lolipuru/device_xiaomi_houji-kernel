@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
 /*
- * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
  * Copyright (c) 2017-2021, The Linux Foundation. All rights reserved.
  */
 
@@ -8,6 +8,12 @@
 #define _MSM_DRM_PP_H_
 
 #include <linux/types.h>
+#include <drm/drm.h>
+
+#define ENABLE_EVENT_SPR_OPR_VALUE
+#define ENABLE_EVENT_INTF_MISR_SIGNATURE
+#define MAX_DSI_DISPLAY 4
+
 /**
  * struct drm_msm_pcc_coeff - PCC coefficient structure for each color
  *                            component.
@@ -142,6 +148,7 @@ struct drm_msm_memcol {
 #define SIXZONE_HUE_ENABLE (1 << 0)
 #define SIXZONE_SAT_ENABLE (1 << 1)
 #define SIXZONE_VAL_ENABLE (1 << 2)
+#define SIXZONE_SV_ENABLE (1 << 3)
 /* struct drm_msm_sixzone_curve - Sixzone HSV adjustment curve structure.
  * @p0: Hue adjustment.
  * @p1: Saturation/Value adjustment.
@@ -156,12 +163,16 @@ struct drm_msm_sixzone_curve {
  *         - SIXZONE_HUE_ENABLE: Enable hue adjustment
  *         - SIXZONE_SAT_ENABLE: Enable saturation adjustment
  *         - SIXZONE_VAL_ENABLE: Enable value adjustment
+ *         - SIXZONE_SV_ENABLE: Enable SV feature
  * @threshold: threshold qualifier.
  * @adjust_p0: Adjustment curve.
  * @adjust_p1: Adjustment curve.
  * @sat_hold: Saturation hold info.
  * @val_hold: Value hold info.
  * @curve: HSV adjustment curve lut.
+ * @sat_adjust_p0: Saturation adjustment curve.
+ * @sat_adjust_p1: Saturation adjustment curve.
+ * @curve_p2: Saturation Mid/Saturation High adjustment
  */
 struct drm_msm_sixzone {
 	__u64 flags;
@@ -171,6 +182,9 @@ struct drm_msm_sixzone {
 	__u32 sat_hold;
 	__u32 val_hold;
 	struct drm_msm_sixzone_curve curve[SIXZONE_LUT_SIZE];
+	__u32 sat_adjust_p0;
+	__u32 sat_adjust_p1;
+	__u32 curve_p2[SIXZONE_LUT_SIZE];
 };
 
 #define GAMUT_3D_MODE_17 1
@@ -481,7 +495,7 @@ struct drm_msm_ad4_roi_cfg {
 #define LTM_DATA_SIZE_3 33
 #define LTM_BUFFER_SIZE 5
 #define LTM_GUARD_BYTES 255
-#define LTM_BLOCK_SIZE 2
+#define LTM_BLOCK_SIZE 4
 
 #define LTM_STATS_SAT (1 << 1)
 #define LTM_STATS_MERGE_SAT (1 << 2)
@@ -573,11 +587,11 @@ struct drm_msm_ltm_buffer {
 #define SPR_INIT_PARAM_SIZE_3 16
 #define SPR_INIT_PARAM_SIZE_4 24
 #define SPR_INIT_PARAM_SIZE_5 32
+#define SPR_INIT_PARAM_SIZE_6 7
 #define SPR_FLAG_BYPASS (1 << 0)
 
 /**
  * struct drm_msm_spr_init_cfg - SPR initial configuration structure
- *
  */
 struct drm_msm_spr_init_cfg {
 	__u64 flags;
@@ -599,7 +613,24 @@ struct drm_msm_spr_init_cfg {
 	__u16 cfg15[SPR_INIT_PARAM_SIZE_5];
 	int cfg16[SPR_INIT_PARAM_SIZE_3];
 	int cfg17[SPR_INIT_PARAM_SIZE_4];
+	__u16 cfg18_en;
+	__u8 cfg18[SPR_INIT_PARAM_SIZE_6];
 };
+
+/**
+ * struct drm_msm_spr_udc_cfg - SPR UDC configuration structure
+ */
+
+#define SPR_UDC_PARAM_SIZE_1 27
+#define SPR_UDC_PARAM_SIZE_2 1536
+struct drm_msm_spr_udc_cfg {
+	__u64 flags;
+	__u16 init_cfg4;
+	__u16 init_cfg11[SPR_INIT_PARAM_SIZE_1];
+	__u16 cfg1[SPR_UDC_PARAM_SIZE_1];
+	__u16 cfg2[SPR_UDC_PARAM_SIZE_2];
+};
+
 
 #define FEATURE_DEM
 #define CFG0_PARAM_LEN 8
@@ -608,6 +639,13 @@ struct drm_msm_spr_init_cfg {
 #define CFG0_PARAM2_LEN 256
 #define CFG5_PARAM01_LEN 4
 #define CFG3_PARAM01_LEN 4
+#define DEMURA_FLAG_0 (1 << 0)
+#define DEMURA_FLAG_1 (1 << 1)
+#define DEMURA_FLAG_2 (3 << 2)
+#define DEMURA_SKIP_CFG0_PARAM2 (1 << 4)
+#define DEMURA_PRECISION_0 (0 << 2)
+#define DEMURA_PRECISION_1 (1 << 2)
+#define DEMURA_PRECISION_2 (2 << 2)
 
 struct drm_msm_dem_cfg {
 	__u64 flags;
@@ -655,6 +693,14 @@ struct drm_msm_dem_cfg {
 	__u32 c1_depth;
 	__u32 c2_depth;
 	__u32 src_id;
+	__u32 cfg0_param2_idx;
+};
+
+struct drm_msm_dem_cfg0_param2 {
+	__u32 cfg0_param2_len;
+	__u64 cfg0_param2_c0[CFG0_PARAM2_LEN];
+	__u64 cfg0_param2_c1[CFG0_PARAM2_LEN];
+	__u64 cfg0_param2_c2[CFG0_PARAM2_LEN];
 };
 
 /**
@@ -743,5 +789,29 @@ struct drm_msm_dimming_bl_lut {
 	__u32 length;
 	__u32 mapped_bl[DIMMING_BL_LUT_LEN];
 };
+
+struct drm_msm_opr_value {
+	__u32 num_valid_opr;
+	__u32 opr_value[MAX_DSI_DISPLAY];
+};
+
+#define SDE_MAX_ROI 4
+struct drm_msm_roi {
+	__u32 num_rects;
+	struct drm_clip_rect roi[SDE_MAX_ROI];
+};
+
+struct drm_msm_misr_sign {
+	__u64 num_valid_misr;
+	struct drm_msm_roi roi_list;
+	__u64 misr_sign_value[MAX_DSI_DISPLAY];
+};
+
+#define UCSC_SUPPORTED
+
+#define UCSC_CSC_CFG0_PARAM_LEN FP16_CSC_CFG0_PARAM_LEN
+#define UCSC_CSC_CFG1_PARAM_LEN FP16_CSC_CFG1_PARAM_LEN
+
+typedef struct drm_msm_fp16_csc drm_msm_ucsc_csc;
 
 #endif /* _MSM_DRM_PP_H_ */
