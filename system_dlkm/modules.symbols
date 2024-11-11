@@ -7,6 +7,7 @@ alias symbol:hci_conn_check_secure bluetooth
 alias symbol:can_send can
 alias symbol:ieee802154_unregister_hw mac802154
 alias symbol:can_rx_offload_del can_dev
+alias symbol:wwan_register_ops wwan
 alias symbol:free_candev can_dev
 alias symbol:ppp_register_net_channel ppp_generic
 alias symbol:rfkill_set_hw_state_reason rfkill
@@ -57,6 +58,7 @@ alias symbol:usbnet_set_rx_mode usbnet
 alias symbol:bt_sock_recvmsg bluetooth
 alias symbol:l2tp_tunnel_dec_refcount l2tp_core
 alias symbol:hci_uart_unregister_device hci_uart
+alias symbol:wwan_port_txon wwan
 alias symbol:usb_serial_generic_get_icount usbserial
 alias symbol:hci_uart_tx_wakeup hci_uart
 alias symbol:usb_serial_resume usbserial
@@ -123,6 +125,7 @@ alias symbol:close_candev can_dev
 alias symbol:nfc_se_transaction nfc
 alias symbol:h4_recv_buf hci_uart
 alias symbol:can_fd_dlc2len can_dev
+alias symbol:wwan_port_txoff wwan
 alias symbol:usb_serial_register_drivers usbserial
 alias symbol:l2cap_chan_send bluetooth
 alias symbol:can_bus_off can_dev
@@ -135,6 +138,7 @@ alias symbol:l2tp_tunnel_get l2tp_core
 alias symbol:rfkill_init_sw_state rfkill
 alias symbol:rfkill_set_sw_state rfkill
 alias symbol:usbnet_get_endpoints usbnet
+alias symbol:wwan_unregister_ops wwan
 alias symbol:mii_ethtool_sset mii
 alias symbol:ieee802154_xmit_hw_error mac802154
 alias symbol:pppox_unbind_sock pppox
@@ -238,6 +242,7 @@ alias symbol:nfc_add_se nfc
 alias symbol:hci_uart_register_device hci_uart
 alias symbol:nfc_unregister_device nfc
 alias symbol:usbnet_get_drvinfo usbnet
+alias symbol:wwan_port_rx wwan
 alias symbol:l2tp_session_dec_refcount l2tp_core
 alias symbol:rfkill_unregister rfkill
 alias symbol:hci_get_route bluetooth
@@ -273,6 +278,7 @@ alias symbol:can_get_state_str can_dev
 alias symbol:ppp_output_wakeup ppp_generic
 alias symbol:usb_serial_generic_write_start usbserial
 alias symbol:wpan_phy_find ieee802154
+alias symbol:wwan_port_get_drvdata wwan
 alias symbol:usbnet_resume_rx usbnet
 alias symbol:l2tp_session_get l2tp_core
 alias symbol:usbnet_get_link usbnet
@@ -297,6 +303,7 @@ alias symbol:open_candev can_dev
 alias symbol:__hci_cmd_send bluetooth
 alias symbol:bt_sock_wait_state bluetooth
 alias symbol:rfkill_resume_polling rfkill
+alias symbol:wwan_remove_port wwan
 alias symbol:usbnet_cdc_zte_rx_fixup cdc_ether
 alias symbol:rfkill_find_type rfkill
 alias symbol:nfc_target_lost nfc
@@ -320,6 +327,7 @@ alias symbol:usbnet_ether_cdc_bind cdc_ether
 alias symbol:mii_check_link mii
 alias symbol:slhc_compress slhc
 alias symbol:ieee802154_configure_durations mac802154
+alias symbol:wwan_create_port wwan
 alias symbol:hci_alloc_dev_priv bluetooth
 alias symbol:ppp_unregister_compressor ppp_generic
 alias symbol:usbnet_nway_reset usbnet
