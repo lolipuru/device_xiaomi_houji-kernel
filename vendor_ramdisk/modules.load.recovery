@@ -112,6 +112,7 @@ icc-test.ko
 mi_memory.ko
 ufs_ffu.ko
 dump_display.ko
+io_monitor.ko
 mi_schedule.ko
 metis.ko
 mist.ko
@@ -119,6 +120,7 @@ rt_mod.ko
 qrtr.ko
 qrtr-gunyah.ko
 msm_sysstats.ko
+lb.ko
 crc-itu-t.ko
 msm_show_resume_irq.ko
 mhi.ko
@@ -190,11 +192,11 @@ qcom_pm8008-regulator.ko
 qpnp-lcdb-regulator.ko
 qpnp-amoled-regulator.ko
 wl2866d.ko
+wl28661d.ko
 qti-ocp-notifier.ko
 hvc_gunyah.ko
 msm_geni_serial.ko
 rdbg.ko
-xlogchar.ko
 qcom_iommu_debug.ko
 drm_dp_aux_bus.ko
 drm_display_helper.ko
@@ -254,8 +256,6 @@ mi_mempool.ko
 proc_exit.ko
 mi_wmark.ko
 binder_prio.ko
-mi_log.ko
-mi_exception_log.ko
 qcom_pil_info.ko
 rproc_qcom_common.ko
 qcom_q6v5.ko

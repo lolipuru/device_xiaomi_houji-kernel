@@ -402,6 +402,7 @@ alias of:N*T*Cqcom,usb-snps-eusb2-phy phy_msm_snps_eusb2
 alias of:N*T*Cqcom,usb-snps-eusb2-phyC* phy_msm_snps_eusb2
 alias of:N*T*Cqcom,ipclite ipclite
 alias of:N*T*Cqcom,ipcliteC* ipclite
+alias i2c:wl28661d-pmic wl28661d
 alias of:N*T*Cqcom,cliffs-gcc gcc_cliffs
 alias of:N*T*Cqcom,cliffs-gccC* gcc_cliffs
 alias net-pf-42 qrtr

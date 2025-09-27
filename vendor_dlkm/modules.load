@@ -1,4 +1,5 @@
 msm_sysstats.ko
+lb.ko
 crc-itu-t.ko
 msm_show_resume_irq.ko
 mhi.ko
@@ -70,11 +71,11 @@ qcom_pm8008-regulator.ko
 qpnp-lcdb-regulator.ko
 qpnp-amoled-regulator.ko
 wl2866d.ko
+wl28661d.ko
 qti-ocp-notifier.ko
 hvc_gunyah.ko
 msm_geni_serial.ko
 rdbg.ko
-xlogchar.ko
 qcom_iommu_debug.ko
 drm_dp_aux_bus.ko
 drm_display_helper.ko
@@ -134,8 +135,6 @@ mi_mempool.ko
 proc_exit.ko
 mi_wmark.ko
 binder_prio.ko
-mi_log.ko
-mi_exception_log.ko
 qcom_pil_info.ko
 rproc_qcom_common.ko
 qcom_q6v5.ko
@@ -207,11 +206,9 @@ qrtr-smd.ko
 qrtr-mhi.ko
 sla.ko
 miwill.ko
-miwill_mode_redudancy.ko
 minet.ko
 miicmpfilter.ko
 qca_cld3_kiwi_v2.ko
-qca_cld3_qca6750.ko
 cnss2.ko
 icnss2.ko
 cnss_plat_ipc_qmi_svc.ko
@@ -234,6 +231,7 @@ swr_ctrl_dlkm.ko
 snd_event_dlkm.ko
 wcd_core_dlkm.ko
 mbhc_dlkm.ko
+typec_analog_acc_dlkm.ko
 wcd9xxx_dlkm.ko
 stub_dlkm.ko
 cs35l41_dlkm.ko
@@ -244,6 +242,7 @@ fs19xx_dlkm.ko
 tef668x_dlkm.ko
 sia91xx_dlkm.ko
 sia91xx_tuning_dlkm.ko
+tfa986x_dlkm.ko
 machine_dlkm.ko
 swr_haptics_dlkm.ko
 hdmi_dlkm.ko
@@ -283,7 +282,6 @@ tango32.ko
 synaptics_tcm2.ko
 xiaomi_touch.ko
 qca_cld3_kiwi_v2.ko
-qca_cld3_qca6750.ko
 cnss2.ko
 icnss2.ko
 cnss_plat_ipc_qmi_svc.ko
@@ -306,6 +304,7 @@ swr_ctrl_dlkm.ko
 snd_event_dlkm.ko
 wcd_core_dlkm.ko
 mbhc_dlkm.ko
+typec_analog_acc_dlkm.ko
 wcd9xxx_dlkm.ko
 stub_dlkm.ko
 cs35l41_dlkm.ko
@@ -316,6 +315,7 @@ fs19xx_dlkm.ko
 tef668x_dlkm.ko
 sia91xx_dlkm.ko
 sia91xx_tuning_dlkm.ko
+tfa986x_dlkm.ko
 machine_dlkm.ko
 swr_haptics_dlkm.ko
 hdmi_dlkm.ko

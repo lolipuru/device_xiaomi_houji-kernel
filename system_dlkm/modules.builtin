@@ -216,6 +216,7 @@ kernel/drivers/clk/hisilicon/crg-hi3798cv200.ko
 kernel/drivers/dma/virt-dma.ko
 kernel/drivers/soc/qcom/qcom-geni-se.ko
 kernel/drivers/soc/sunxi/sunxi_sram.ko
+kernel/drivers/soc/tegra/cbb/tegra234-cbb.ko
 kernel/drivers/virtio/virtio.ko
 kernel/drivers/virtio/virtio_ring.ko
 kernel/drivers/regulator/fixed.ko
@@ -229,16 +230,19 @@ kernel/drivers/tty/serial/8250/8250_base.ko
 kernel/drivers/tty/serial/8250/8250_pci.ko
 kernel/drivers/tty/serial/8250/8250_dw.ko
 kernel/drivers/tty/serial/8250/8250_pericom.ko
+kernel/drivers/tty/serial/8250/8250_bcm7271.ko
 kernel/drivers/tty/serial/8250/8250_of.ko
 kernel/drivers/tty/serial/amba-pl011.ko
 kernel/drivers/tty/serial/samsung_tty.ko
 kernel/drivers/tty/serial/qcom_geni_serial.ko
+kernel/drivers/tty/serial/tegra-tcu.ko
 kernel/drivers/tty/serial/sprd_serial.ko
 kernel/drivers/tty/serial/serial_mctrl_gpio.ko
 kernel/drivers/tty/serdev/serdev.ko
 kernel/drivers/tty/ttynull.ko
 kernel/drivers/char/hw_random/rng-core.ko
 kernel/drivers/char/hw_random/hisi-rng.ko
+kernel/drivers/char/hw_random/iproc-rng200.ko
 kernel/drivers/char/hw_random/arm_smccc_trng.ko
 kernel/drivers/char/hw_random/cn10k-rng.ko
 kernel/drivers/iommu/iova.ko
@@ -370,6 +374,7 @@ kernel/drivers/md/dm-crypt.ko
 kernel/drivers/md/dm-default-key.ko
 kernel/drivers/md/dm-snapshot.ko
 kernel/drivers/md/dm-verity.ko
+kernel/drivers/md/dm-bow.ko
 kernel/drivers/md/dm-user.ko
 kernel/drivers/edac/edac_core.ko
 kernel/drivers/cpufreq/freq_table.ko
@@ -454,6 +459,8 @@ kernel/drivers/devfreq/governor_powersave.ko
 kernel/drivers/devfreq/governor_userspace.ko
 kernel/drivers/devfreq/governor_passive.ko
 kernel/drivers/extcon/extcon-core.ko
+kernel/drivers/memory/tegra/tegra-mc.ko
+kernel/drivers/memory/tegra/tegra186-emc.ko
 kernel/drivers/iio/industrialio.ko
 kernel/drivers/powercap/powercap_sys.ko
 kernel/drivers/android/binder.ko

@@ -105,6 +105,7 @@ alias symbol:ieee802154_wake_queue mac802154
 alias symbol:bt_sock_link bluetooth
 alias symbol:usb_serial_generic_resume usbserial
 alias symbol:l2tp_session_delete l2tp_core
+alias symbol:bt_sock_linked bluetooth
 alias symbol:l2tp_sk_to_tunnel l2tp_core
 alias symbol:usb_serial_generic_tiocmiwait usbserial
 alias symbol:rfkill_soft_blocked rfkill
@@ -260,6 +261,7 @@ alias symbol:tipc_sk_fill_sock_diag tipc
 alias symbol:l2cap_conn_get bluetooth
 alias symbol:mii_ethtool_gset mii
 alias symbol:bt_warn bluetooth
+alias symbol:hci_cmd_sync_status bluetooth
 alias symbol:usb_serial_deregister_drivers usbserial
 alias symbol:usbnet_cdc_status cdc_ether
 alias symbol:hci_cmd_sync_cancel bluetooth
@@ -305,6 +307,7 @@ alias symbol:bt_sock_wait_state bluetooth
 alias symbol:rfkill_resume_polling rfkill
 alias symbol:wwan_remove_port wwan
 alias symbol:usbnet_cdc_zte_rx_fixup cdc_ether
+alias symbol:bt_sock_alloc bluetooth
 alias symbol:rfkill_find_type rfkill
 alias symbol:nfc_target_lost nfc
 alias symbol:usbnet_purge_paused_rxq usbnet
@@ -354,3 +357,4 @@ alias symbol:cdc_ncm_rx_verify_ndp16 cdc_ncm
 alias symbol:usb_serial_handle_dcd_change usbserial
 alias symbol:mii_ethtool_get_link_ksettings mii
 alias symbol:hci_reset_dev bluetooth
+alias symbol:hci_cmd_sync_submit bluetooth

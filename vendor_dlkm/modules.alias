@@ -85,6 +85,8 @@ alias of:N*T*Cqcom,bam-v1.7.0C* bam_dma
 alias of:N*T*Cqcom,qfprom-sys qfprom_sys
 alias of:N*T*Cqcom,qfprom-sysC* qfprom_sys
 alias i2c:max31760 max31760_fan
+alias i2c:tfa98xx tfa986x_dlkm
+alias i2c:aw884xx_smartpa tfa986x_dlkm
 alias platform:geni_i3c_master i3c_master_msm_geni
 alias of:N*T*Cqcom,geni-i3c i3c_master_msm_geni
 alias of:N*T*Cqcom,geni-i3cC* i3c_master_msm_geni
@@ -534,6 +536,7 @@ alias of:N*T*Cqcom,usb-snps-eusb2-phy phy_msm_snps_eusb2
 alias of:N*T*Cqcom,usb-snps-eusb2-phyC* phy_msm_snps_eusb2
 alias of:N*T*Cqcom,ipclite ipclite
 alias of:N*T*Cqcom,ipcliteC* ipclite
+alias i2c:wl28661d-pmic wl28661d
 alias rtnl-link-miicmpfilter miicmpfilter
 alias st54spi_gpio stm_st54se_gpio
 alias of:N*T*Cst,st54spi_gpio stm_st54se_gpio
